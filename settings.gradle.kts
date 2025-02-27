@@ -22,5 +22,6 @@ pluginManagement {
 include(
     ":spotlightOnboarding",
     ":sample:android",
+    ":sample:web",
     ":sample:common"
 )

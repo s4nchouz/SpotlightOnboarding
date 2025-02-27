@@ -3,6 +3,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -12,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import io.github.s4nchouz.spotlightOnboarding.SpotlightOnboarding
 import io.github.s4nchouz.spotlightOnboarding.spotlightItem
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun App() {
     var isVisible by remember { mutableStateOf(true) }
@@ -19,7 +21,8 @@ fun App() {
     SpotlightOnboarding(
         modifier = Modifier.fillMaxSize(),
         isVisible = isVisible,
-        onDismiss = { isVisible = false },
+        onDismissRequest = { isVisible = false },
+        sheetDragHandle = null,
         sheetContent = {
             Box(
                 modifier = Modifier
@@ -45,7 +48,9 @@ fun App() {
 
             Button(
                 modifier = Modifier
-                    .spotlightItem(),
+                    .spotlightItem(
+                        cornerRadius = 16.dp
+                    ),
                 onClick = { isVisible = true }
             ) {
                 Text(text = "CLick")
