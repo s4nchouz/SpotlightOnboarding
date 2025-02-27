@@ -2,7 +2,7 @@
 kotlin = "2.1.10"
 compose = "1.7.3"
 compose-activity = "1.10.1"
-agp = "8.2.2"
+agp = "8.7.3"
 kotlinx-uuid = "0.1.4"
 
 [libraries]
