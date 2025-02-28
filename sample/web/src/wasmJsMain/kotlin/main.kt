@@ -3,7 +3,7 @@ import androidx.compose.ui.window.CanvasBasedWindow
 
 @OptIn(ExperimentalComposeUiApi::class)
 fun main() {
-    CanvasBasedWindow(title = "SpotlightOnboarding") {
+    CanvasBasedWindow(title = Strings.APP_NAME) {
         App()
     }
 }

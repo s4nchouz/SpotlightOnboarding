@@ -5,7 +5,7 @@ import org.jetbrains.skiko.wasm.onWasmReady
 @OptIn(ExperimentalComposeUiApi::class)
 fun main() {
     onWasmReady {
-        CanvasBasedWindow(title = "SpotlightOnboarding") {
+        CanvasBasedWindow(title = Strings.APP_NAME) {
             App()
         }
     }
