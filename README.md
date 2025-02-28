@@ -11,6 +11,10 @@
 
 Spotlight Onboarding is a Jetpack Compose library that helps you guide users through your app by highlighting important UI elements. It supports a standalone spotlight mode and an optional Material 3 BottomSheet for additional context.
 
+## Screenshots
+
+![screenshot](assets/Screenshot1.png)
+
 ## Features
 - Highlight specific UI elements.
 - Smooth enter/exit animations.
