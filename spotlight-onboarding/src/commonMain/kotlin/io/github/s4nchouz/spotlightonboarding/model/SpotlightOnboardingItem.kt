@@ -1,4 +1,4 @@
-package io.github.s4nchouz.spotlightOnboarding.model
+package io.github.s4nchouz.spotlightonboarding.model
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Immutable

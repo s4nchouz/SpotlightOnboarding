@@ -1,4 +1,4 @@
-package io.github.s4nchouz.spotlightOnboarding
+package io.github.s4nchouz.spotlightonboarding
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
@@ -12,12 +12,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import io.github.s4nchouz.spotlightOnboarding.model.SpotlightOnboardingState
-import io.github.s4nchouz.spotlightOnboarding.model.rememberSpotlightOnboardingState
-
-object SpotlightOnboardingDefaults {
-    val SCRIM_COLOR = Color.Black.copy(alpha = 0.4f)
-}
+import io.github.s4nchouz.spotlightonboarding.model.SpotlightOnboardingState
+import io.github.s4nchouz.spotlightonboarding.model.rememberSpotlightOnboardingState
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

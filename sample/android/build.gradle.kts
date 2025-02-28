@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "io.github.s4nchouz.spotlightOnboarding.sample"
+    namespace = "io.github.s4nchouz.spotlightonboarding.sample"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "io.github.s4nchouz.spotlightOnboarding.sample"
+        applicationId = "io.github.s4nchouz.spotlightonboarding.sample"
         minSdk = 24
         targetSdk = 35
         versionCode = 1

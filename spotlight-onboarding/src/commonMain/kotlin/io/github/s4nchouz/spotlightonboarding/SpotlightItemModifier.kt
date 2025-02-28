@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalUuidApi::class)
 
-package io.github.s4nchouz.spotlightOnboarding
+package io.github.s4nchouz.spotlightonboarding
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Stable
@@ -12,8 +12,8 @@ import androidx.compose.ui.node.ModifierNodeElement
 import androidx.compose.ui.platform.InspectorInfo
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import io.github.s4nchouz.spotlightOnboarding.model.SpotlightOnboardingItem
-import io.github.s4nchouz.spotlightOnboarding.model.SpotlightOnboardingState
+import io.github.s4nchouz.spotlightonboarding.model.SpotlightOnboardingItem
+import io.github.s4nchouz.spotlightonboarding.model.SpotlightOnboardingState
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 

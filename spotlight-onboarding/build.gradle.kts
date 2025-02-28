@@ -38,13 +38,12 @@ kotlin {
     sourceSets.commonMain.dependencies {
         implementation(compose.runtime)
         implementation(compose.foundation)
-        implementation(compose.material3)
         implementation(libs.kotlinx.uuid)
     }
 }
 
 android {
-    namespace = "io.github.s4nchouz.spotlightOnboarding"
+    namespace = "io.github.s4nchouz.spotlightonboarding"
     compileSdk = 35
 
     defaultConfig {

@@ -14,7 +14,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.util.fastForEachIndexed
-import io.github.s4nchouz.spotlightOnboarding.spotlightItem
+import io.github.s4nchouz.spotlightonboarding.spotlightItem
 import sampleScreen.model.textItems
 import theme.SpotlightTheme
 import util.Spacer

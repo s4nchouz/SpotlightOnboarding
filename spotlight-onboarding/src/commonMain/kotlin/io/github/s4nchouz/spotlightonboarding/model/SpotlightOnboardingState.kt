@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalUuidApi::class)
 
-package io.github.s4nchouz.spotlightOnboarding.model
+package io.github.s4nchouz.spotlightonboarding.model
 
 import androidx.compose.runtime.*
 import androidx.compose.runtime.snapshots.SnapshotStateMap
@@ -19,11 +19,11 @@ class SpotlightOnboardingState {
     var isVisible by mutableStateOf(false)
         private set
 
-    internal fun show() {
+    fun show() {
         isVisible = true
     }
 
-    internal fun hide() {
+    fun hide() {
         isVisible = false
     }
 

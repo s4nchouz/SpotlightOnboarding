@@ -1,4 +1,4 @@
-package io.github.s4nchouz.spotlightOnboarding
+package io.github.s4nchouz.spotlightonboarding
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
@@ -13,8 +13,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.drawscope.clipPath
-import androidx.compose.ui.layout.*
-import io.github.s4nchouz.spotlightOnboarding.model.SpotlightOnboardingState
+import androidx.compose.ui.layout.positionInRoot
+import io.github.s4nchouz.spotlightonboarding.model.SpotlightOnboardingState
 import kotlin.uuid.ExperimentalUuidApi
 
 @OptIn(ExperimentalUuidApi::class)

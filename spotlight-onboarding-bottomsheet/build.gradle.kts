@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -8,8 +9,6 @@ plugins {
 }
 
 kotlin {
-    applyDefaultHierarchyTemplate()
-
     androidTarget {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_17)
@@ -23,31 +22,29 @@ kotlin {
         browser()
     }
 
-    @OptIn(org.jetbrains.kotlin.gradle.ExperimentalWasmDsl::class)
+    @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
-        browser()
-    }
-
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
-            baseName = "Common"
-            isStatic = true
+        browser {
+            testTask {
+                enabled = false
+            }
         }
     }
 
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+
     sourceSets.commonMain.dependencies {
-        implementation(project(":spotlight-onboarding-bottomsheet"))
+        implementation(compose.runtime)
         implementation(compose.foundation)
         implementation(compose.material3)
+        api(project(":spotlight-onboarding"))
     }
 }
 
 android {
-    namespace = "io.github.s4nchouz.spotlightonboarding.sample"
+    namespace = "io.github.s4nchouz.spotlightonboarding"
     compileSdk = 35
 
     defaultConfig {

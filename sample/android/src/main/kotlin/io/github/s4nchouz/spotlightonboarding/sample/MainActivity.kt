@@ -1,4 +1,4 @@
-package io.github.s4nchouz.spotlightOnboarding.sample
+package io.github.s4nchouz.spotlightonboarding.sample
 
 import App
 import android.os.Bundle

@@ -1,16 +1,16 @@
-package io.github.s4nchouz.spotlightOnboarding
+package io.github.s4nchouz.spotlightonboarding
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.compositionLocalOf
-import io.github.s4nchouz.spotlightOnboarding.model.SpotlightOnboardingState
+import io.github.s4nchouz.spotlightonboarding.model.SpotlightOnboardingState
 
-internal val LocalSpotlightOnboardingState = compositionLocalOf<SpotlightOnboardingState> {
+val LocalSpotlightOnboardingState = compositionLocalOf<SpotlightOnboardingState> {
     error("SpotlightOnboardingState not provided")
 }
 
 @Composable
-internal fun ProvideSpotlightOnboardingState(
+fun ProvideSpotlightOnboardingState(
     state: SpotlightOnboardingState,
     content: @Composable () -> Unit,
 ) {

@@ -22,7 +22,7 @@ compose.desktop {
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "io.github.s4nchouz.spotlightOnboarding.sample"
+            packageName = "io.github.s4nchouz.spotlightonboarding.sample"
             packageVersion = "1.0.0"
         }
     }

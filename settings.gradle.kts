@@ -20,7 +20,8 @@ pluginManagement {
 }
 
 include(
-    ":spotlightOnboarding",
+    ":spotlight-onboarding",
+    ":spotlight-onboarding-bottomsheet",
     ":sample:common",
     ":sample:android",
     ":sample:web",
