@@ -17,6 +17,16 @@ import io.github.s4nchouz.spotlightonboarding.model.SpotlightOnboardingState
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
+/**
+ * Applies a spotlight effect to a composable item, making it a target for the onboarding spotlight.
+ *
+ * This modifier registers the composable as a spotlight item, allowing it to be highlighted
+ * during the onboarding experience. The spotlight effect can be customized with corner radius
+ * and padding.
+ *
+ * @param cornerRadius The corner radius of the spotlight effect. Defaults to `0.dp` (sharp edges).
+ * @param contentPadding The padding around the spotlighted item. Defaults to `PaddingValues()`.
+ */
 @Stable
 fun Modifier.spotlightItem(
     cornerRadius: Dp = 0.dp,
@@ -81,7 +91,7 @@ private class SpotlightItemNode(
     val key = Uuid.random()
 
     override fun onGloballyPositioned(coordinates: LayoutCoordinates) {
-        state.setItem(
+        state.putItem(
             key = key,
             item = SpotlightOnboardingItem(
                 layoutCoordinates = coordinates,

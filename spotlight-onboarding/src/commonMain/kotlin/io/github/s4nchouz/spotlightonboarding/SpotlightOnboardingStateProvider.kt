@@ -5,8 +5,10 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.compositionLocalOf
 import io.github.s4nchouz.spotlightonboarding.model.SpotlightOnboardingState
 
+private const val STATE_NOT_PROVIDED_MESSAGE = "SpotlightOnboardingState not provided"
+
 val LocalSpotlightOnboardingState = compositionLocalOf<SpotlightOnboardingState> {
-    error("SpotlightOnboardingState not provided")
+    error(STATE_NOT_PROVIDED_MESSAGE)
 }
 
 @Composable

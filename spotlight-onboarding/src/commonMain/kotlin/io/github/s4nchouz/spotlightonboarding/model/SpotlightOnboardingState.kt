@@ -27,7 +27,7 @@ class SpotlightOnboardingState {
         isVisible = false
     }
 
-    internal fun setItem(key: Uuid, item: SpotlightOnboardingItem) {
+    internal fun putItem(key: Uuid, item: SpotlightOnboardingItem) {
         items[key] = item
     }
 

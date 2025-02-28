@@ -1,8 +1,6 @@
 package io.github.s4nchouz.spotlightonboarding
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
+import androidx.compose.animation.*
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
@@ -22,12 +20,14 @@ import kotlin.uuid.ExperimentalUuidApi
 fun Spotlight(
     scrimColor: Color,
     state: SpotlightOnboardingState,
+    enterTransition: EnterTransition = fadeIn(),
+    exitTransition: ExitTransition = fadeOut(),
 ) {
     AnimatedVisibility(
         modifier = Modifier.fillMaxSize(),
         visible = state.isVisible,
-        enter = fadeIn(),
-        exit = fadeOut(),
+        enter = enterTransition,
+        exit = exitTransition,
     ) {
         Canvas(
             modifier = Modifier.fillMaxSize(),
