@@ -1,5 +1,14 @@
 # Spotlight Onboarding
 
+[![compose-mp-version](https://img.shields.io/badge/compose--multiplatform-1.7.3-blue)](https://github.com/JetBrains/compose-multiplatform)
+[![kotlin-version](https://img.shields.io/badge/kotlin-2.1.10-blue)](https://github.com/JetBrains/compose-jb)
+
+![badge-iOS](https://img.shields.io/badge/Platform-iOS-lightgray)
+![badge-Android](https://img.shields.io/badge/Platform-Android-brightgreen)
+![badge-JVM](https://img.shields.io/badge/Platform-JVM-orange)
+![badge-macOS](https://img.shields.io/badge/Platform-macOS-purple)
+![badge-web](https://img.shields.io/badge/Platform-Web-blue)
+
 Spotlight Onboarding is a Jetpack Compose library that helps you guide users through your app by highlighting important UI elements. It supports a standalone spotlight mode and an optional Material 3 BottomSheet for additional context.
 
 ## Features
