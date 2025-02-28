@@ -28,7 +28,7 @@ implementation("io.github.s4nchouz:spotlight-onboarding:<version>")
 For the Material 3 BottomSheet version:
 
 ```kotlin
-implementation("io.github.s4nchouz:spotlight-onboarding-material3:<version>")
+implementation("io.github.s4nchouz:spotlight-onboarding-bottom-sheet:<version>")
 ```
 
 ## Usage
