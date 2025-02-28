@@ -13,7 +13,7 @@ Spotlight Onboarding is a library for Jetpack Compose and Compose Multiplatform 
 
 ## Screenshots
 
-![screenshot](assets/Screenshot1.png)
+![screenshot](assets/Screenshot.png)
 
 ## Features
 - Highlight specific UI elements.
