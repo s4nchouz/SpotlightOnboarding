@@ -30,13 +30,13 @@ Spotlight Onboarding is a library for Compose Multiplatform that helps you creat
 Add the dependency to your `build.gradle.kts`:
 
 ```kotlin
-implementation("io.github.s4nchouz:spotlight-onboarding:1.0.0")
+implementation("io.github.s4nchouz:spotlight-onboarding:1.1.0")
 ```
 
 For the Material 3 BottomSheet version:
 
 ```kotlin
-implementation("io.github.s4nchouz:spotlight-onboarding-bottomsheet:1.0.0")
+implementation("io.github.s4nchouz:spotlight-onboarding-bottomsheet:1.1.0")
 ```
 
 ## Usage
