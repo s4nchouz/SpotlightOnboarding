@@ -21,6 +21,7 @@ Spotlight Onboarding is a library for Compose Multiplatform that helps you creat
 - Smooth enter/exit animations.
 - Customizable scrim color and shape.
 - Optional Material 3 BottomSheet support.
+- Support for multiple pages in onboarding flow.
 
 ## Installation
 
