@@ -9,9 +9,7 @@
 ![badge-macOS](https://img.shields.io/badge/Platform-macOS-purple)
 ![badge-web](https://img.shields.io/badge/Platform-Web-blue)
 
-Spotlight Onboarding is a library for Jetpack Compose and Compose Multiplatform that helps you create guided onboarding
-experiences by highlighting key UI elements. It allows users to focus on specific parts of your interface while dimming
-the rest of the screen.
+Spotlight Onboarding is a library for Compose Multiplatform that helps you create guided onboarding experiences by highlighting key UI elements. It allows users to focus on specific parts of your interface while dimming the rest of the screen.
 
 ## Screenshots
 
@@ -26,16 +24,18 @@ the rest of the screen.
 
 ## Installation
 
+![Maven Central](https://img.shields.io/maven-central/v/io.github.s4nchouz/spotlight-onboarding)
+
 Add the dependency to your `build.gradle.kts`:
 
 ```kotlin
-implementation("io.github.s4nchouz:spotlight-onboarding:<version>")
+implementation("io.github.s4nchouz:spotlight-onboarding:1.0.0")
 ```
 
 For the Material 3 BottomSheet version:
 
 ```kotlin
-implementation("io.github.s4nchouz:spotlight-onboarding-bottom-sheet:<version>")
+implementation("io.github.s4nchouz:spotlight-onboarding-bottomsheet:1.0.0")
 ```
 
 ## Usage
