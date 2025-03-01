@@ -29,12 +29,14 @@ fun Spotlight(
         enter = enterTransition,
         exit = exitTransition,
     ) {
+        val page = state.pages[state.currentPageIndex]
+
         Canvas(
             modifier = Modifier.fillMaxSize(),
             onDraw = {
                 val spotlightPath = Path().apply {
-                    state.items.values.forEach { spotlightItem ->
-                        val positionInParent = spotlightItem.layoutCoordinates.positionInRoot()
+                    page.items.values.forEach { spotlightItem ->
+                        val posInParent = spotlightItem.layoutCoordinates.positionInRoot()
 
                         val left = spotlightItem.contentPadding.calculateLeftPadding(layoutDirection).toPx()
                         val top = spotlightItem.contentPadding.calculateTopPadding().toPx()
@@ -44,10 +46,10 @@ fun Spotlight(
                         if (spotlightItem.layoutCoordinates.isAttached) {
                             addRoundRect(
                                 roundRect = RoundRect(
-                                    left = positionInParent.x - left,
-                                    top = positionInParent.y - top,
-                                    right = positionInParent.x + spotlightItem.layoutCoordinates.size.width + right,
-                                    bottom = positionInParent.y + spotlightItem.layoutCoordinates.size.height + bottom,
+                                    left = posInParent.x - left,
+                                    top = posInParent.y - top,
+                                    right = posInParent.x + spotlightItem.layoutCoordinates.size.width + right,
+                                    bottom = posInParent.y + spotlightItem.layoutCoordinates.size.height + bottom,
                                     radiusX = spotlightItem.cornerRadius.toPx(),
                                     radiusY = spotlightItem.cornerRadius.toPx(),
                                 ),

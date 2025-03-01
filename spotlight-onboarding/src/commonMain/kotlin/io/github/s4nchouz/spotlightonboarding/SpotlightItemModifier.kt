@@ -30,12 +30,14 @@ import kotlin.uuid.Uuid
 @Stable
 fun Modifier.spotlightItem(
     cornerRadius: Dp = 0.dp,
-    contentPadding: PaddingValues = PaddingValues()
+    contentPadding: PaddingValues = PaddingValues(),
+    pageIndex: Int = 0,
 ) = composed {
     this then SpotlightItemElement(
         state = LocalSpotlightOnboardingState.current,
         cornerRadius = cornerRadius,
         contentPadding = contentPadding,
+        pageIndex = pageIndex,
     )
 }
 
@@ -43,18 +45,21 @@ private class SpotlightItemElement(
     private val state: SpotlightOnboardingState,
     private val cornerRadius: Dp = 0.dp,
     private val contentPadding: PaddingValues = PaddingValues(),
+    private val pageIndex: Int = 0,
 ) : ModifierNodeElement<SpotlightItemNode>() {
 
     override fun create() = SpotlightItemNode(
         state = state,
         cornerRadius = cornerRadius,
         contentPadding = contentPadding,
+        pageIndex = pageIndex,
     )
 
     override fun update(node: SpotlightItemNode) {
         node.cornerRadius = cornerRadius
         node.state = state
         node.contentPadding = contentPadding
+        node.pageIndex = pageIndex
     }
 
     override fun equals(other: Any?): Boolean {
@@ -63,6 +68,7 @@ private class SpotlightItemElement(
 
         if (cornerRadius != other.cornerRadius) return false
         if (contentPadding != other.contentPadding) return false
+        if (pageIndex != other.pageIndex) return false
         if (state != other.state) return false
 
         return true
@@ -72,6 +78,7 @@ private class SpotlightItemElement(
         var result = cornerRadius.hashCode()
         result = 31 * result + contentPadding.hashCode()
         result = 31 * result + state.hashCode()
+        result = 31 * result + pageIndex.hashCode()
         return result
     }
 
@@ -79,6 +86,7 @@ private class SpotlightItemElement(
         name = "spotlightItem"
         properties["cornerRadius"] = cornerRadius
         properties["contentPadding"] = contentPadding
+        properties["pageIndex"] = pageIndex
     }
 }
 
@@ -86,12 +94,14 @@ private class SpotlightItemNode(
     var state: SpotlightOnboardingState,
     var cornerRadius: Dp = 0.dp,
     var contentPadding: PaddingValues = PaddingValues(),
+    var pageIndex: Int = 0,
 ) : Modifier.Node(), GlobalPositionAwareModifierNode {
 
     val key = Uuid.random()
 
     override fun onGloballyPositioned(coordinates: LayoutCoordinates) {
         state.putItem(
+            pageIndex = pageIndex,
             key = key,
             item = SpotlightOnboardingItem(
                 layoutCoordinates = coordinates,
@@ -103,6 +113,7 @@ private class SpotlightItemNode(
 
     override fun onDetach() {
         state.removeItem(
+            pageIndex = pageIndex,
             key = key
         )
 
