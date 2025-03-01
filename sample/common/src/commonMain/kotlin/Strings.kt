@@ -7,4 +7,5 @@ object Strings {
     """.trimIndent()
     const val CLOSE_BUTTON = "Close"
     const val SHOW_BUTTON = "Show"
+    const val NEXT_BUTTON = "Next"
 }

@@ -54,10 +54,18 @@ internal fun SampleScreenContent(
                     Box(
                         modifier = Modifier
                             .let {
-                                if (index == 4) {
-                                    it.spotlightItem(cornerRadius = 16.dp)
-                                } else {
-                                    it
+                                when (index) {
+                                    2 -> it.spotlightItem(
+                                        cornerRadius = 8.dp,
+                                        pageIndex = 0,
+                                    )
+
+                                    4 -> it.spotlightItem(
+                                        cornerRadius = 8.dp,
+                                        pageIndex = 1
+                                    )
+
+                                    else -> it
                                 }
                             }
                             .background(color = SpotlightTheme.color.card, shape = RoundedCornerShape(16.dp))
@@ -85,10 +93,18 @@ internal fun SampleScreenContent(
                     modifier = Modifier
                         .padding(horizontal = 16.dp)
                         .let {
-                            if (index == 4) {
-                                it.spotlightItem(cornerRadius = (8.dp))
-                            } else {
-                                it
+                            when (index) {
+                                2 -> it.spotlightItem(
+                                    cornerRadius = 8.dp,
+                                    pageIndex = 0,
+                                )
+
+                                4 -> it.spotlightItem(
+                                    cornerRadius = 8.dp,
+                                    pageIndex = 1
+                                )
+
+                                else -> it
                             }
                         }
                         .fillMaxWidth()
@@ -122,7 +138,7 @@ internal fun SampleScreenContent(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 8.dp, horizontal = 16.dp)
+                .padding(vertical = 16.dp, horizontal = 16.dp)
                 .navigationBarsPadding()
                 .background(color = SpotlightTheme.color.primary, shape = RoundedCornerShape(16.dp))
                 .clip(RoundedCornerShape(16.dp))

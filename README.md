@@ -13,13 +13,15 @@ Spotlight Onboarding is a library for Compose Multiplatform that helps you creat
 
 ## Screenshots
 
-![screenshot](assets/Screenshot.png)
+![screenshot](assets/screen.png)
 
 ## Features
+
 - Highlight specific UI elements.
 - Smooth enter/exit animations.
 - Customizable scrim color and shape.
 - Optional Material 3 BottomSheet support.
+- Support for multiple pages in onboarding flow.
 
 ## Installation
 
@@ -28,13 +30,13 @@ Spotlight Onboarding is a library for Compose Multiplatform that helps you creat
 Add the dependency to your `build.gradle.kts`:
 
 ```kotlin
-implementation("io.github.s4nchouz:spotlight-onboarding:1.0.0")
+implementation("io.github.s4nchouz:spotlight-onboarding:1.1.0")
 ```
 
 For the Material 3 BottomSheet version:
 
 ```kotlin
-implementation("io.github.s4nchouz:spotlight-onboarding-bottomsheet:1.0.0")
+implementation("io.github.s4nchouz:spotlight-onboarding-bottomsheet:1.1.0")
 ```
 
 ## Usage
@@ -45,7 +47,7 @@ implementation("io.github.s4nchouz:spotlight-onboarding-bottomsheet:1.0.0")
 @Composable
 fun MyScreen() {
     val spotlightState = rememberSpotlightOnboardingState()
-    
+
     SpotlightOnboarding(
         isVisible = true,
         spotlightState = spotlightState

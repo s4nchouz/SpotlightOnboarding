@@ -3,18 +3,31 @@
 package io.github.s4nchouz.spotlightonboarding.model
 
 import androidx.compose.runtime.*
-import androidx.compose.runtime.snapshots.SnapshotStateMap
+import androidx.compose.runtime.snapshots.SnapshotStateList
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 @Composable
-fun rememberSpotlightOnboardingState() = remember {
-    SpotlightOnboardingState()
+fun rememberSpotlightOnboardingState(pageCount: Int = 1) = remember(pageCount) {
+    SpotlightOnboardingState(
+        pageCount = pageCount,
+    )
 }
 
 @Stable
-class SpotlightOnboardingState {
-    internal val items by mutableStateOf(SnapshotStateMap<Uuid, SpotlightOnboardingItem>())
+class SpotlightOnboardingState(
+    private val pageCount: Int
+) {
+    internal val pages by mutableStateOf(
+        value = SnapshotStateList<SpotlightOnboardingPage>().apply {
+            repeat(pageCount) {
+                add(element = SpotlightOnboardingPage())
+            }
+        }
+    )
+
+    var currentPageIndex: Int by mutableStateOf(0)
+        private set
 
     var isVisible by mutableStateOf(false)
         private set
@@ -27,12 +40,30 @@ class SpotlightOnboardingState {
         isVisible = false
     }
 
-    internal fun putItem(key: Uuid, item: SpotlightOnboardingItem) {
-        items[key] = item
+    fun nextPage() {
+        if (currentPageIndex != pageCount - 1) {
+            currentPageIndex++
+        }
     }
 
-    internal fun removeItem(key: Uuid) {
-        items.remove(key)
+    fun previewPage() {
+        if (currentPageIndex != 0) {
+            currentPageIndex--
+        }
+    }
+
+    fun setPage(index: Int) {
+        currentPageIndex = index
+    }
+
+    internal fun putItem(pageIndex: Int, key: Uuid, item: SpotlightOnboardingItem) {
+        val page = pages[pageIndex]
+        page.items[key] = item
+    }
+
+    internal fun removeItem(pageIndex: Int, key: Uuid) {
+        val page = pages[pageIndex]
+        page.items.remove(key)
     }
 }
 

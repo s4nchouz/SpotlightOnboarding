@@ -67,7 +67,7 @@ mavenPublishing {
     coordinates(
         groupId = "io.github.s4nchouz",
         artifactId = "spotlight-onboarding-bottomsheet",
-        version = "1.0.0"
+        version = "1.1.0"
     )
 
     pom {

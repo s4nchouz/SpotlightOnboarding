@@ -3,42 +3,64 @@ package sampleScreen
 import Strings
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import io.github.s4nchouz.spotlightonboarding.model.SpotlightOnboardingState
+import kotlinx.coroutines.launch
 import theme.SpotlightTheme
 import util.Spacer
 
 @Composable
 internal fun ColumnScope.SampleSheetContent(
+    spotlightOnboardingState: SpotlightOnboardingState,
     onCloseClicked: () -> Unit,
 ) {
-    Spacer(height = 16.dp)
+    val pagerState = rememberPagerState { 2 }
+    val coroutineScope = rememberCoroutineScope()
 
-    Text(
-        modifier = Modifier.padding(horizontal = 16.dp),
-        text = Strings.SHEET_TITLE,
-        color = SpotlightTheme.color.textPrimary,
-        fontSize = 24.sp
-    )
+    LaunchedEffect(true) {
+        snapshotFlow { pagerState.currentPage }.collect {
+            spotlightOnboardingState.setPage(it)
+        }
+    }
 
-    Spacer(height = 2.dp)
+    HorizontalPager(
+        modifier = Modifier.fillMaxWidth(),
+        userScrollEnabled = false,
+        state = pagerState,
+    ) {
+        Column(modifier = Modifier.fillMaxWidth()) {
+            Spacer(height = 16.dp)
 
-    Text(
-        modifier = Modifier.padding(horizontal = 16.dp),
-        text = Strings.SHEET_SUBTITLE,
-        color = SpotlightTheme.color.textSecondary,
-        fontSize = 16.sp
-    )
+            Text(
+                modifier = Modifier.padding(horizontal = 16.dp),
+                text = it.toString(),
+                color = SpotlightTheme.color.textPrimary,
+                fontSize = 24.sp
+            )
+
+            Spacer(height = 2.dp)
+
+            Text(
+                modifier = Modifier.padding(horizontal = 16.dp),
+                text = Strings.SHEET_SUBTITLE,
+                color = SpotlightTheme.color.textSecondary,
+                fontSize = 16.sp
+            )
+        }
+    }
 
     Spacer(height = 16.dp)
 
@@ -48,12 +70,20 @@ internal fun ColumnScope.SampleSheetContent(
             .padding(horizontal = 16.dp)
             .background(color = SpotlightTheme.color.primary, shape = RoundedCornerShape(16.dp))
             .clip(RoundedCornerShape(16.dp))
-            .clickable(onClick = onCloseClicked)
+            .clickable {
+                if (pagerState.currentPage == 0) {
+                    coroutineScope.launch {
+                        pagerState.animateScrollToPage(1)
+                    }
+                } else {
+                    onCloseClicked()
+                }
+            }
             .padding(vertical = 8.dp, horizontal = 16.dp),
         contentAlignment = Alignment.Center,
     ) {
         Text(
-            text = Strings.CLOSE_BUTTON,
+            text = if (pagerState.currentPage == 0) Strings.NEXT_BUTTON else Strings.CLOSE_BUTTON,
             color = SpotlightTheme.color.onPrimary,
             fontSize = 16.sp
         )
