@@ -9,7 +9,7 @@
 ![badge-macOS](https://img.shields.io/badge/Platform-macOS-purple)
 ![badge-web](https://img.shields.io/badge/Platform-Web-blue)
 
-Spotlight Onboarding is a library for Jetpack Compose and Compose Multiplatform that helps you create guided onboarding experiences by highlighting key UI elements. It allows users to focus on specific parts of your interface while dimming the rest of the screen.
+Spotlight Onboarding is a library for Compose Multiplatform that helps you create guided onboarding experiences by highlighting key UI elements. It allows users to focus on specific parts of your interface while dimming the rest of the screen.
 
 ## Screenshots
 
