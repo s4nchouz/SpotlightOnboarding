@@ -2,6 +2,7 @@ package sampleScreen
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import io.github.s4nchouz.spotlightonboarding.SpotlightOnboarding
@@ -13,13 +14,21 @@ import theme.SpotlightTheme
 fun SampleScreen() {
     var isVisible by remember { mutableStateOf(true) }
     val spotlightOnboardingState = rememberSpotlightOnboardingState(pageCount = 2)
+    val sheetState = rememberModalBottomSheetState {
+        spotlightOnboardingState.currentPageIndex == 1
+    }
 
     SpotlightOnboarding(
         modifier = Modifier.fillMaxSize(),
         isVisible = isVisible,
-        onDismissRequest = { isVisible = false },
+        onDismissRequest = {
+            if (spotlightOnboardingState.currentPageIndex == 1) {
+                isVisible = false
+            }
+        },
         sheetDragHandle = null,
         sheetContainerColor = SpotlightTheme.color.background,
+        sheetState = sheetState,
         spotlightState = spotlightOnboardingState,
         sheetContent = {
             SampleSheetContent(

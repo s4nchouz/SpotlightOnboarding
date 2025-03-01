@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,6 +18,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.github.s4nchouz.spotlightonboarding.model.SpotlightOnboardingState
+import kotlinx.coroutines.launch
 import theme.SpotlightTheme
 import util.Spacer
 
@@ -26,6 +28,7 @@ internal fun ColumnScope.SampleSheetContent(
     onCloseClicked: () -> Unit,
 ) {
     val pagerState = rememberPagerState { 2 }
+    val coroutineScope = rememberCoroutineScope()
 
     LaunchedEffect(true) {
         snapshotFlow { pagerState.currentPage }.collect {
@@ -35,6 +38,7 @@ internal fun ColumnScope.SampleSheetContent(
 
     HorizontalPager(
         modifier = Modifier.fillMaxWidth(),
+        userScrollEnabled = false,
         state = pagerState,
     ) {
         Column(modifier = Modifier.fillMaxWidth()) {
@@ -66,12 +70,20 @@ internal fun ColumnScope.SampleSheetContent(
             .padding(horizontal = 16.dp)
             .background(color = SpotlightTheme.color.primary, shape = RoundedCornerShape(16.dp))
             .clip(RoundedCornerShape(16.dp))
-            .clickable(onClick = onCloseClicked)
+            .clickable {
+                if (pagerState.currentPage == 0) {
+                    coroutineScope.launch {
+                        pagerState.animateScrollToPage(1)
+                    }
+                } else {
+                    onCloseClicked()
+                }
+            }
             .padding(vertical = 8.dp, horizontal = 16.dp),
         contentAlignment = Alignment.Center,
     ) {
         Text(
-            text = Strings.CLOSE_BUTTON,
+            text = if (pagerState.currentPage == 0) Strings.NEXT_BUTTON else Strings.CLOSE_BUTTON,
             color = SpotlightTheme.color.onPrimary,
             fontSize = 16.sp
         )
