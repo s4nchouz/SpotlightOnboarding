@@ -23,7 +23,7 @@ Spotlight Onboarding is a library for Jetpack Compose and Compose Multiplatform 
 
 ## Installation
 
-[Maven Central](https://img.shields.io/maven-central/v/io.github.s4nchouz/spotlight-onboarding]
+![Maven Central](https://img.shields.io/maven-central/v/io.github.s4nchouz/spotlight-onboarding]
 
 Add the dependency to your `build.gradle.kts`:
 
