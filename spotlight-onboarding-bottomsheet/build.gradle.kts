@@ -40,7 +40,7 @@ kotlin {
     sourceSets.commonMain.dependencies {
         implementation(compose.runtime)
         implementation(compose.foundation)
-        implementation(compose.material3)
+        api(compose.material3)
         api(project(":spotlight-onboarding"))
     }
 }
@@ -67,7 +67,7 @@ mavenPublishing {
     coordinates(
         groupId = "io.github.s4nchouz",
         artifactId = "spotlight-onboarding-bottomsheet",
-        version = "1.1.0"
+        version = "1.1.1"
     )
 
     pom {
